@@ -10,19 +10,27 @@ public class Fruit {
     private int icon;
     private int imageBack;
     private int counter;
-    final int MAX_CANTIDAD = 10;
-    final int MIN_CANTIDAD = 0;
+    public static final int MAX_CANTIDAD = 10;
+    public static final int MIN_CANTIDAD = 0;
 
-    public Fruit(String name, String description, int icon , int imageBack){
+    public Fruit(String name, String description, int icon , int imageBack,int counter){
         this.name = name;
         this.description = description;
         this.icon = icon;
         this.imageBack = imageBack;
-        this.counter = MIN_CANTIDAD;
+        this.counter = counter;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
     }
 
     public void setName(String name) {
@@ -51,5 +59,14 @@ public class Fruit {
 
     public void setImageBack(int imageBack) {
         this.imageBack = imageBack;
+    }
+
+    public void addQuantity(int quantity){
+        if(this.counter < MAX_CANTIDAD)
+            this.counter+= quantity;
+    }
+
+    public void ResetCounter(){
+        this.counter = MIN_CANTIDAD;
     }
 }
